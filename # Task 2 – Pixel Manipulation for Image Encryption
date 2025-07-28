@@ -1,0 +1,45 @@
+
+
+This project is part of my internship with *Prodigy Infotech, under the topic **Pixel Manipulation for Image Encryption*. The goal of this task is to implement a simple image encryption technique by altering pixel values in a meaningful yet secure way.
+
+## 🚀 Features
+
+- Load and display original image
+- Encrypt image by manipulating RGB pixel values
+- Save the encrypted image
+- Basic understanding of how pixel-level security works
+
+## 🛠 Technologies Used
+
+- Java (AWT, Swing, BufferedImage)
+- Eclipse IDE
+- File Handling
+- ImageIO for reading and writing image files
+
+## 📷 Screenshots
+
+| Original Image | Encrypted Image |
+|----------------|-----------------|
+| ![Original](screenshots/original.png) | ![Encrypted](screenshots/encrypted.png) |
+
+## 📂 How It Works
+
+1. Load an input image using BufferedImage.
+2. Access and manipulate pixel RGB values.
+3. Encrypt pixels by altering RGB components (e.g., simple transformations or XOR operations).
+4. Save the result as a new encrypted image.
+5. Visualize both the original and encrypted image using a GUI.
+
+## 🧠 Encryption Logic Example
+
+```java
+int red = (pixel >> 16) & 0xff;
+int green = (pixel >> 8) & 0xff;
+int blue = pixel & 0xff;
+
+// Simple XOR encryption
+red = red ^ 0b10101010;
+green = green ^ 0b01010101;
+blue = blue ^ 0b11110000;
+
+int encryptedPixel = (red << 16) | (green << 8) | blue;
